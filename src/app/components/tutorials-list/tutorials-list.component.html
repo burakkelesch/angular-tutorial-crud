@@ -1,0 +1,31 @@
+<div class="list row">
+    <div class="col-md-8">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search Titel" [(ngModel)]="titel" >
+            <button class="btn btn-dark" type="button" (click)="searchTitel()" >Search</button>
+            <button class="btn btn-primary" type="button" (click)="pageRefresh()" >Refresh</button>
+        </div>
+    </div>
+    <div class="col-md-6">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let tutorial of tutorials; let i = index" 
+        [class.active]="i ==currentIndex" (click)="setActiveTutorial(tutorial, i)">
+            {{tutorial.id}} - {{tutorial.title}} - {{tutorial.description}}
+        </li>
+    </ul>
+</div>
+<div class="col-md-6" *ngIf="currentTutorial.id">
+   <h4>Tutorial</h4> 
+    <div>
+        <label for=""><strong>Titel :</strong></label>{{currentTutorial.title}}
+    </div>
+    <div>
+        <label for=""><strong>Description :</strong></label>{{currentTutorial.description}}
+    </div>
+    <div>
+        <label for=""><strong>Published :</strong></label>{{currentTutorial.published ? "Yayinlandi" : "Bekliyor..."}}
+    </div>
+    <a class="btn btn-success" routerLink="/tutorials/{{currentTutorial.id}}">Fixed</a>
+    
+</div>
+</div>

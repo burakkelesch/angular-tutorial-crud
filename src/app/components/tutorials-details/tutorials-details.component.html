@@ -1,0 +1,15 @@
+<div>
+    <div class="submit-form">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="text" required [(ngModel)]="updateTutorials.title" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" required 
+            [(ngModel)]="updateTutorials.description" />
+        </div>
+        <button class="btn btn-success m-1" (click)="editTutorials()">Edit</button>
+        <button class="btn btn-danger m-2" type="button" (click)="deleteTutorials()">Delete</button>
+    </div>
+</div>
